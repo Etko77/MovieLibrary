@@ -1,4 +1,4 @@
-package com.example.demo.security;
+package com.example.demo.config;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Bean;

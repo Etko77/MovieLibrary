@@ -1,4 +1,4 @@
-package com.example.demo.security;
+package com.example.demo.config;
 
 import io.swagger.v3.oas.annotations.OpenAPIDefinition;
 import io.swagger.v3.oas.annotations.enums.SecuritySchemeType;
