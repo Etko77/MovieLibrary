@@ -1,0 +1,68 @@
+spring:
+  application:
+    name: movie-library
+  sql:
+    init:
+      mode: always
+
+  # H2 Database Configuration
+  datasource:
+    url: jdbc:h2:mem:moviedb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    driver-class-name: org.h2.Driver
+    username: root
+    password: root1235
+
+  # JPA Configuration
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+    defer-datasource-initialization: true  # IMPORTANT: Run data.sql AFTER Hibernate creates tables
+
+  # SQL Initialization - Only data.sql (schema created by Hibernate)
+#  sql:
+#    init:
+#      mode: always
+#      data-locations: classpath:data.sql
+
+  # H2 Console (for development/debugging)
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+      settings:
+        web-allow-others: false
+
+# Server Configuration
+server:
+  port: 8080
+  error:
+    include-message: always
+    include-binding-errors: always
+
+# OMDb API Configuration
+omdb:
+  api:
+    key: ${OMDB_API_KEY:demo}
+    url: http://www.omdbapi.com/
+
+# Logging Configuration
+logging:
+  level:
+    root: INFO
+    com.example.demo: DEBUG
+    org.springframework.jdbc: DEBUG
+
+# Springdoc OpenAPI Configuration
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+    operationsSorter: method
+    tagsSorter: alpha
+    tryItOutEnabled: true
