@@ -1,5 +1,6 @@
 package com.example.demo.services;
 
+import com.example.demo.exceptions.MovieNotFoundException;
 import com.example.demo.models.Movie;
 import com.example.demo.models.dtos.MovieRequest;
 import com.example.demo.models.dtos.MovieResponse;
